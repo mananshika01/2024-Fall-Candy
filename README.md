@@ -6,7 +6,7 @@ Neo Motor and SparkMax
 
 CIM Motor and TalonSRX
 
-Digital Input Sensor
+Limit Switch Sensor
 
 Pigeon (connected through TalonSRX)
 
@@ -16,7 +16,7 @@ Pigeon (connected through TalonSRX)
 Param 1: Run CIM in Brake mode
 
 ### Basic
-Req 1: All: Display state of Digital Input Sensor to console (not pressed = false, pressed = true)
+Req 1: All: Display state of Limit Switch Sensor to console (not pressed = false, pressed = true)
 
 Req 2: All: Read pigeon heading, and display the heading on shuffleboard
 
@@ -28,13 +28,13 @@ Req 5: Teleop: Joystick turns CIM motor forward and reverse (from +100% to -100%
 
 Req 6: Teleop: Hold Y - turn SparkMax/Neo using 2.5 volts
 
-Req 7: All: Show Digital Input Sensor state on Shuffleboard (not pressed = red, pressed = green)
+Req 7: All: Show Limit Switch Sensor state on Shuffleboard (not pressed = red, pressed = green)
 
 Req 8: All: Show pigeon heading and display using compass widget on Shuffleboard
 
 ### Intermediate
 
-Req 9: Teleop: If Digital Input Sensor is true, cut TalonSRX/CIM power by 50% (when B and X are held)
+Req 9: Teleop: If Limit Switch Sensor is true, cut TalonSRX/CIM power by 50% (when B and X are held)
 
 ### Advanced
 
