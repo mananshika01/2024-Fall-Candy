@@ -6,7 +6,7 @@ import team.gif.robot.Robot;
 public class MoveCloserSlow extends CommandBase {
 
     public MoveCloserSlow() {
-        addRequirements(Robot.swervetrain); // uncomment
+        //addRequirements(Robot.swervetrain); // uncomment
     }
 
     // Called when the command is initially scheduled.

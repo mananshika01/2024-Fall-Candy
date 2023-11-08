@@ -61,7 +61,7 @@ public final class Constants {
 
         public static final boolean kGyroReversed = false;
 
-        public static final double COAST_DRIVE_RPM = 2500; // 2750; //4800 demo speed //2750
+        public static final double COAST_DRIVE_RPM = 2000;//2500; // 2750; //4800 demo speed //2750
         public static final double BOOST_DRIVE_RPM = 1675; // 1675 is max speed; was 1750;
         public static final double SLOW_DRIVE_RPM = 3500;
 
