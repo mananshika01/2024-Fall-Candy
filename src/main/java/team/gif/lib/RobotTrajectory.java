@@ -35,7 +35,7 @@ public class RobotTrajectory {
 
         return new PPSwerveControllerCommand(
             trajectory,
-            Robot.swervetrain::getPose,
+            Robot.swerveDrivetrain::getPose,
             Constants.Drivetrain.DRIVE_KINEMATICS,
             // TODO SwerveAuto can remove and add after PID constants are finalized and autos are running well
             //SA new PIDController(SmartDashboard.getNumber("kPX", 5.0), 0, 0),
@@ -44,9 +44,9 @@ public class RobotTrajectory {
             new PIDController(Constants.AutoConstants.PX_CONTROLLER, 0, 0),
             new PIDController(Constants.AutoConstants.PY_CONTROLLER, 0, 0),
             new PIDController(Constants.AutoConstants.P_THETA_CONTROLLER, 0, 0),
-            Robot.swervetrain::setModuleStates,
+            Robot.swerveDrivetrain::setModuleStates,
             //true <-- currently not working
-            Robot.swervetrain
+            Robot.swerveDrivetrain
         );
     }
 }

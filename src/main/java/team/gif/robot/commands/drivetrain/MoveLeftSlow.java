@@ -6,7 +6,7 @@ import team.gif.robot.Robot;
 public class MoveLeftSlow extends Command {
 
     public MoveLeftSlow() {
-        //addRequirements(Robot.swervetrain); // uncomment
+        addRequirements(Robot.swerveDrivetrain); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -18,15 +18,15 @@ public class MoveLeftSlow extends Command {
     public void execute() {
         // move at 0.5 m/s (or 0.2 m/s if right stick is pressed)
         if( Robot.oi.driver.getHID().getRightStickButton())
-            Robot.swervetrain.drive(0.0, 0.2, 0.0);
+            Robot.swerveDrivetrain.drive(0.0, 0.2, 0.0);
         else
-            Robot.swervetrain.drive(0.0, 0.5, 0.0);
+            Robot.swerveDrivetrain.drive(0.0, 0.2, 0.0);
     }
 
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.swervetrain.drive(0.0, 0.0, 0.0);
+        Robot.swerveDrivetrain.drive(0.0, 0.0, 0.0);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

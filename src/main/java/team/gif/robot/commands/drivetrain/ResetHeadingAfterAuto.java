@@ -2,14 +2,16 @@ package team.gif.robot.commands.drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class Reset0 extends Command {
-    public Reset0() {}
+public class ResetHeadingAfterAuto extends Command {
+    double heading = 0;
+
+    public ResetHeadingAfterAuto() {}
 
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {
-        Robot.pigeon.resetPigeonPosition(0);
-        System.out.println("RESET HEADING!!!!!");
+        heading = Robot.pigeon.get360Heading();
+        Robot.pigeon.resetPigeonPosition(heading - 90);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
@@ -25,9 +27,4 @@ public class Reset0 extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {}
-
-    @Override
-    public boolean runsWhenDisabled() {
-        return true;
-    }
 }

@@ -16,7 +16,7 @@ public class EnableBoost extends Command {
     @Override
     public void initialize() {
         drivePace = SwerveDrivetrain.getDrivePace();
-        Robot.swervetrain.setDrivePace(drivePace.BOOST_FR);
+        Robot.swerveDrivetrain.setDrivePace(drivePace.BOOST_FR);
     }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
@@ -32,6 +32,6 @@ public class EnableBoost extends Command {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.swervetrain.setDrivePace(drivePace);
+        Robot.swerveDrivetrain.setDrivePace(drivePace);
     }
 }

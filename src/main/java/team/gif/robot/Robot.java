@@ -11,7 +11,7 @@ import team.gif.lib.logging.EventFileLogger;
 import team.gif.lib.logging.TelemetryFileLogger;
 import team.gif.robot.commands.drivetrain.DriveSwerve;
 import team.gif.robot.subsystems.SwerveDrivetrain;
-import team.gif.robot.subsystems.driver.Pigeon;
+import team.gif.robot.subsystems.drivers.Pigeon;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -27,9 +27,11 @@ public class Robot extends TimedRobot {
   public static OI oi;
 
   public static Pigeon pigeon;
-  public static SwerveDrivetrain swervetrain;
+  public static SwerveDrivetrain swerveDrivetrain;
   public static DriveSwerve driveSwerve;
   public static UiSmartDashboard uiSmartDashboard;
+
+  public static final boolean enableSwerveDebug = false;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -42,11 +44,11 @@ public class Robot extends TimedRobot {
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
-    pigeon = new Pigeon(RobotMap.PIGEON);
-    swervetrain = new SwerveDrivetrain();
+//    pigeon = new Pigeon(RobotMap.PIGEON);
+    swerveDrivetrain = new SwerveDrivetrain();
     driveSwerve = new DriveSwerve();
-    swervetrain.setDefaultCommand(driveSwerve);
-    swervetrain.resetHeading();
+    swerveDrivetrain.setDefaultCommand(driveSwerve);
+    swerveDrivetrain.resetHeading();
   }
 
   /**

@@ -14,12 +14,11 @@ public class DriveSwerve extends Command {
         this.forwardLimiter = new SlewRateLimiter(Constants.ModuleConstants.TELE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND);
         this.strafeLimiter = new SlewRateLimiter(Constants.ModuleConstants.TELE_DRIVE_MAX_ACCELERATION_UNITS_PER_SECOND);
         this.turnLimiter = new SlewRateLimiter(Constants.ModuleConstants.TELE_DRIVE_MAX_ANGULAR_ACCELERATION_UNITS_PER_SECOND);
-        addRequirements(Robot.swervetrain);
+        addRequirements(Robot.swerveDrivetrain);
     }
 
     @Override
-    public void initialize() {
-    }
+    public void initialize() {}
 
     @Override
     public void execute() {
@@ -35,37 +34,37 @@ public class DriveSwerve extends Command {
         double rot = -Robot.oi.driver.getRightX(); // need to invert because left is negative, right is positive
         rot = (Math.abs(rot) > Constants.Joystick.DEADBAND) ? rot : 0.0;
 
-        forwardSign = forward / Math.abs(forward);
-        strafeSign = strafe / Math.abs(strafe);
+        forwardSign = forward/Math.abs(forward);
+        strafeSign = strafe/Math.abs(strafe);
         // Use a parabolic curve (instead if linear) for the joystick to speed ratio
         // This allows for small joystick inputs to use slower speeds
         forward = Math.abs(forward) * forward;
         strafe = Math.abs(strafe) * strafe;
 
-        forward = .5 * Math.sqrt(2 + forward * forward - strafe * strafe + 2 * forward * Math.sqrt(2)) -
-                .5 * Math.sqrt(2 + forward * forward - strafe * strafe - 2 * forward * Math.sqrt(2));
+        forward = .5 * Math.sqrt(2 + forward*forward - strafe*strafe + 2*forward*Math.sqrt(2)) -
+                .5 * Math.sqrt(2 + forward*forward - strafe*strafe - 2*forward*Math.sqrt(2));
 
-        strafe = .5 * Math.sqrt(2 - forward * forward + strafe * strafe + 2 * strafe * Math.sqrt(2)) -
-                .5 * Math.sqrt(2 - forward * forward + strafe * strafe - 2 * strafe * Math.sqrt(2));
+        strafe = .5 * Math.sqrt(2 - forward*forward + strafe*strafe + 2*strafe*Math.sqrt(2)) -
+                .5 * Math.sqrt(2 - forward*forward + strafe*strafe - 2*strafe*Math.sqrt(2));
 
-        if (Double.isNaN(forward))
+        if( Double.isNaN(forward) )
             forward = forwardSign;
-        if (Double.isNaN(strafe))
+        if( Double.isNaN(strafe) )
             strafe = strafeSign;
 
         //Forward speed, Sideways speed, Rotation Speed
         forward = forwardLimiter.calculate(forward) * Constants.ModuleConstants.TELE_DRIVE_MAX_SPEED_METERS_PER_SECOND;
         strafe = strafeLimiter.calculate(strafe) * Constants.ModuleConstants.TELE_DRIVE_MAX_SPEED_METERS_PER_SECOND;
+
+
         rot = turnLimiter.calculate(rot) * Constants.ModuleConstants.TELE_DRIVE_MAX_ANGULAR_SPEED_RADIANS_PER_SECOND;
 
         // the robot starts facing the driver station so for this year negating y and x
-        Robot.swervetrain.drive(forward, strafe, rot);
-
+        Robot.swerveDrivetrain.drive(forward, strafe, rot);
     }
 
     @Override
-    public void end(boolean interrupted) {
-    }
+    public void end(boolean interrupted) {}
 
     @Override
     public boolean isFinished() {
