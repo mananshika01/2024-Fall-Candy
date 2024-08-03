@@ -1,9 +1,9 @@
 package team.gif.robot.commands.drivetrain;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.robot.Robot;
 
-public class MoveRightSlow extends CommandBase {
+public class MoveRightSlow extends Command {
 
     public MoveRightSlow() {
         //addRequirements(Robot.swervetrain); // uncomment

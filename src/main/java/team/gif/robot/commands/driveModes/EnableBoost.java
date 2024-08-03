@@ -1,11 +1,11 @@
 package team.gif.robot.commands.driveModes;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import team.gif.lib.drivePace;
 import team.gif.robot.Robot;
 import team.gif.robot.subsystems.SwerveDrivetrain;
 
-public class EnableBoost extends CommandBase {
+public class EnableBoost extends Command {
     private drivePace drivePace;
     public EnableBoost() {
         super();
