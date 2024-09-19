@@ -27,8 +27,6 @@ public class UiSmartDashboard {
      *     SmartDashboard.putString("Elevator", String.format("%11.2f", Elevator.getPosition()));
      */
     public void updateUI() {
-        // Timers
-        SmartDashboard.putString("Time", String.format("%.4f", Timer.getFPGATimestamp()));
-        SmartDashboard.putString("Timer",String.format("%.2f",Timer.getMatchTime()));
+
     }
 }
