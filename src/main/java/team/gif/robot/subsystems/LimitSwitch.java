@@ -4,11 +4,22 @@
 
 package team.gif.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class ExampleSubsystem extends SubsystemBase {
+public class LimitSwitch extends SubsystemBase {
+  private static DigitalInput LimitSwitch;
+
+
+
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public LimitSwitch() {
+    LimitSwitch = new DigitalInput (9);
+  }
+
+ public boolean State1() {
+   return LimitSwitch.get();
+ }
+
 
 }

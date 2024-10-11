@@ -26,6 +26,7 @@ public class Robot extends TimedRobot {
 
   public static Pigeon pigeon;
 
+
   public static UiSmartDashboard uiSmartDashboard;
 
   public static final boolean enableSwerveDebug = false;
@@ -38,11 +39,12 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
+   pigeon  = new Pigeon (5);
     robotContainer = new RobotContainer();
-    oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
-
+    oi = new OI();
   }
+
 
   /**
    * This function is called every 20 ms, no matter the mode. Use this for items like diagnostics
@@ -53,11 +55,14 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    System.out.println( pigeon.get360Heading());
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+
+
 
     uiSmartDashboard.updateUI();
 
@@ -91,7 +96,9 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+
+  }
 
   @Override
   public void testInit() {
